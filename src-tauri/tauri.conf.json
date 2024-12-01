@@ -1,0 +1,74 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tauri-apps/tauri/1.x/core/tauri-config-schema/schema.json",
+  "build": {
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "distDir": "../dist",
+    "devPath": "http://localhost:1420"
+  },
+  "package": {
+    "productName": "Personal Finance",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "fs": {
+        "all": true,
+        "scope": ["$APP/*", "$DOCUMENT/*"]
+      },
+      "dialog": {
+        "all": true
+      },
+      "shell": {
+        "open": true
+      },
+      "path": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.personal-finance.app",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "title": "Personal Finance",
+        "width": 800
+      }
+    ]
+  }
+}
