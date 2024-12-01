@@ -1,130 +1,91 @@
-# Personal Finance App
+# Personal Finance Manager
 
-A Tauri-based personal finance application that helps you analyze your bank statements and track your finances.
+A desktop application built with Tauri and React for managing personal finances and analyzing bank statements.
 
-## Project Setup
+## Features
 
-### Prerequisites
-- Node.js (v16 or later)
-- Rust toolchain
-- npm (Node package manager)
+- 🔒 Secure local authentication
+- 📊 Transaction dashboard with financial overview
+- 📄 PDF bank statement processing
+- 📈 CSV file support
+- 💰 Income and expense tracking
+- 📅 Date range filtering
+- 🔍 Transaction search and categorization
+- 💾 Local SQLite database storage
 
-### Installation Steps
+## Prerequisites
 
-1. **Clone the repository**
+Before you begin, ensure you have installed:
+
+- [Node.js](https://nodejs.org/) (LTS version)
+- [Rust](https://www.rust-lang.org/tools/install)
+- Platform-specific dependencies:
+  - **Windows**: Microsoft Visual Studio C++ Build Tools
+  - **macOS**: Xcode Command Line Tools
+  - **Linux**: `apt install libwebkit2gtk-4.0-dev libgtk-3-dev libappindicator3-dev`
+
+## Installation
+
+1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd personal-finance
+git clone https://github.com/MJSteenberg/xfinance.git
+cd xfinance
 ```
 
-2. **Install dependencies**
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. **Install additional UI components**
+3. Run the development build:
 ```bash
-npm install clsx tailwind-merge class-variance-authority
-```
-
-4. **Setup environment variables**
-Create a `.env` file in the root directory:
-```env
-SPIKE_API_TOKEN=your_api_token_here
-```
-
-## Development
-
-### Running the app
-```bash
-# Start the development server
 npm run tauri dev
 ```
 
-### Project Structure
-```
-personal-finance/
-├── public/
-│   ├── index.html            # HTML entry point
-│   ├── tauri.svg            
-│   └── vite.svg
-├── src/
-│   ├── assets/              # Static assets
-│   ├── components/          # React components
-│   │   ├── ui/             # Shared UI components
-│   │   ├── Header.tsx
-│   │   └── Layout.tsx
-│   ├── hooks/              # Custom React hooks
-│   │   └── useUpload.ts
-│   ├── lib/                # Utility functions
-│   ├── pages/              # Page components
-│   │   ├── Dashboard.tsx
-│   │   ├── Settings.tsx
-│   │   └── StatementUpload.tsx
-│   ├── styles/             # Styling
-│   │   └── App.css
-│   ├── App.tsx
-│   ├── index.tsx
-│   ├── main.tsx
-│   └── vite-env.d.ts
-├── src-tauri/              # Tauri backend
-├── .gitignore
-├── index.html
-├── package-lock.json
-├── package.json
-└── vite.config.ts
-```
-
-### Key Components
-
-#### StatementUpload
-The main component for uploading and processing bank statements. Features:
-- PDF file upload
-- File validation
-- Integration with Spike API for statement processing
-
-#### Alert Component
-A reusable alert component for displaying messages and errors. Usage:
-```typescript
-<Alert variant="destructive">
-  <AlertCircle className="h-4 w-4" />
-  <AlertDescription>Error message here</AlertDescription>
-</Alert>
-```
-
-## API Integration
-
-### Spike API
-The application uses the Spike API to process bank statements. Endpoints used:
-- `/pdf1` - For processing PDF bank statements
-
-## Build & Deployment
-
-### Building for production
+4. Build for production:
 ```bash
 npm run tauri build
 ```
 
-This will create platform-specific installers in the `src-tauri/target/release/bundle` directory.
+## Usage
 
-### Supported Platforms
-- Windows
-- macOS
-- Linux
+1. Launch the application
+2. Create an account or sign in
+3. Upload bank statements (PDF or CSV)
+4. View your financial dashboard
+5. Filter transactions by date
+6. Track income and expenses
 
-## Troubleshooting
+## Security
 
-### Common Issues
+- All data is stored locally in a SQLite database
+- No data is transmitted to external servers
+- Passwords are securely hashed using bcrypt
+- File system access is limited to application scope
 
-1. **PDF Upload Issues**
-   - Ensure the file is a valid PDF
-   - Check file size (max 6MB)
-   - Verify API token is set correctly
+## Development
 
-2. **Build Issues**
-   - Ensure Rust toolchain is installed
-   - Check that all dependencies are installed
-   - Verify Tauri prerequisites are met for your platform
+The application is built with:
+- [Tauri](https://tauri.app/) - Desktop framework
+- [React](https://reactjs.org/) - Frontend framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Rust](https://www.rust-lang.org/) - Backend logic
+- [SQLite](https://www.sqlite.org/) - Local database
+- [TailwindCSS](https://tailwindcss.com/) - Styling
+
+## Project Structure
+
+```
+├── src/                  # React frontend code
+│   ├── components/       # Reusable React components
+│   ├── pages/           # Application pages
+│   ├── types/           # TypeScript type definitions
+│   └── styles/          # CSS and styling
+├── src-tauri/           # Rust backend code
+│   ├── src/             # Rust source files
+│   └── Cargo.toml       # Rust dependencies
+└── package.json         # Node.js dependencies
+```
 
 ## Contributing
 
@@ -132,8 +93,12 @@ This will create platform-specific installers in the `src-tauri/target/release/b
 2. Create a feature branch
 3. Commit your changes
 4. Push to the branch
-5. Create a Pull Request
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is private and not licensed for public use.
+
+## Support
+
+For support, please open an issue in the GitHub repository.
